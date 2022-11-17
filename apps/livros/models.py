@@ -19,9 +19,14 @@ class Autor(models.Model):
         return self.nome
 
 class Editora(models.Model):
+    Modalidade = [
+        ('Bacharelado', 'bacharelado'),
+        ('L', 'licenciatura'),
+        ('T', 'tecnológico')
+    ]
+
     nome = models.CharField(max_length=150)
-    cidade = models.CharField(max_length=150)
-    estado = models.CharField(max_length=50)
+    modalidade = models.CharField(max_length=100, choices=Modalidade, null=True)
 
     class Meta():
         ordering = ['nome']

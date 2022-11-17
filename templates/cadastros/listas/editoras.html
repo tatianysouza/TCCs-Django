@@ -6,7 +6,7 @@
 {% block conteudo %}
     {% include 'partils/_alertas.html' %}
     <div>
-        <h2>Lista de Editoras
+        <h2>Lista de Cursos
         {% if request.user.is_authenticated %}
         <a href="{% url 'criar_editora' %}" class="btn btn-primary float-end"><i class="bi bi-plus-lg"></i> Adicionar Editora</a>
         {% endif %}
@@ -18,9 +18,8 @@
             <thead>
                 <tr>
                     <th scope="col">Nome</th>
-                    <th scope="col">Cidade</th>
-                    <th scope="col">Estado</th>
-                    <th scope="col">Livros</th>
+                    <th scope="col">Modalidade</th>
+                    <th scope="col">TCC'S</th>
                     {% if request.user.is_authenticated %}
                     <th scope="col">Ações</th>
                     {% endif %}
@@ -30,8 +29,7 @@
             {% for editora in object_list %}
                 <tr>
                     <td>{{ editora.nome }}</td>
-                    <td>{{ editora.cidade }}</td>
-                    <td>{{ editora.estado }}</td>
+                    <td>{{ editora.modalidade }}</td>
                     <td>
                         <a href="{% url 'listar_livros_editora' editora.pk %}" class="btn btn-primary btn-sm"><i class="bi bi-book"></i> Livros</a>
                     </td>

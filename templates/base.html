@@ -24,17 +24,17 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                  <a class="nav-link" aria-current="page" href="{% url 'index' %}"><i class="bi bi-book"></i> Livros</a>
+                  <a class="nav-link" aria-current="page" href="{% url 'index' %}"><i class="bi bi-book"></i> TCC'S</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'listar_autores' %}"><i class="bi bi-person"></i> Autores</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'listar_editoras' %}"><i class="bi bi-journal-text"></i> Editoras</a>
+                    <a class="nav-link" href="{% url 'listar_editoras' %}"><i class="bi bi-journal-text"></i> Cursos</a>
                 </li>
                 {% if request.user.is_authenticated %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'listar_livros_usuario' %}"><i class="bi bi-book-fill"></i> Meus Livros</a>
+                    <a class="nav-link" href="{% url 'listar_livros_usuario' %}"><i class="bi bi-book-fill"></i> Meus TCC'S</a>
                 </li>
                 {% endif %}
               </ul>
