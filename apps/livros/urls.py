@@ -6,6 +6,7 @@ urlpatterns = [
     path('dashboard/livros/', LivrosListPorUsuario.as_view(), name='listar_livros_usuario'),
     path('listar/livros_autor/<int:autor>/', LivrosAutorList.as_view(), name='listar_livros_autor'),
     path('listar/livros_editora/<int:editora>/', LivrosEditoraList.as_view(), name='listar_livros_editora'),
+    path('listar/tccs_orientador/<int:editora>/', TccsPorOrientadorList.as_view(), name='listar_tccs_orientador'),
     path('detalhar/livro/<int:pk>/', LivroDetail.as_view(), name='detalhar_livro'),
     path('livro/<int:pk>/', LivroDetailPublicado.as_view(), name='detalhar_livro_publicado'),
     path('criar/livro/', LivroCreate.as_view(), name='criar_livro'),
@@ -21,4 +22,9 @@ urlpatterns = [
     path('editar/editora/<int:pk>/', EditoraUpdate.as_view(), name='editar_editora'),
     path('deletar/editora/<int:pk>/', EditoraDelete.as_view(), name='deletar_editora'),
     path('listar/editoras/', EditoraList.as_view(), name='listar_editoras'),
+
+    path('criar/orientador/', OrientadorCreate.as_view(), name='criar_orientador'),
+    path('editar/orientador/<int:pk>/', OrientadorUpdate.as_view(), name='editar_orientador'),
+    path('deletar/orientador/<int:pk>/', OrientadorDelete.as_view(), name='deletar_orientador'),
+    path('listar/orientador/', OrientadorList.as_view(), name='listar_orientadores'),
 ]

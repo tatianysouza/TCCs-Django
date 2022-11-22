@@ -1,6 +1,6 @@
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
-from apps.livros.models import Livro, Autor, Editora
+from apps.livros.models import Livro, Autor, Editora, Orientador
 from apps.livros.form import LivroForm
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -120,3 +120,16 @@ class LivrosEditoraList(ListView):
             return Livro.objects.filter(publicado=True, editora=Editora.objects.get(pk=self.kwargs['editora']), titulo__icontains=nome)
         else:
             return Livro.objects.filter(publicado=True, editora=Editora.objects.get(pk=self.kwargs['editora']))
+
+class LivrosOrientadorList(ListView):
+    model = Livro
+    template_name = "index.html"
+    paginate_by = 6
+
+    def get_queryset(self):
+        nome = self.request.GET.get('nome')
+
+        if nome:
+            return Livro.objects.filter(publicado=True, autor=Orientador.objects.get(pk=self.kwargs['orientador']), titulo__icontains=nome)
+        else:
+            return Livro.objects.filter(publicado=True, autor=Orientador.objects.get(pk=self.kwargs['orientador']))

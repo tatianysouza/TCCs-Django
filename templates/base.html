@@ -32,6 +32,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'listar_editoras' %}"><i class="bi bi-journal-text"></i> Cursos</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'listar_orientadores' %}"><i class="bi bi-person"></i> Orientadores</a>
+                </li>
                 {% if request.user.is_authenticated %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'listar_livros_usuario' %}"><i class="bi bi-book-fill"></i> Meus TCC'S</a>

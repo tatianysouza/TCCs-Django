@@ -1,5 +1,5 @@
 from django import forms
-from .models import Autor, Livro
+from .models import Autor, Livro, Orientador
 
 class AutorForm(forms.ModelForm):
 
@@ -23,3 +23,19 @@ class LivroForm(forms.ModelForm):
         model = Livro
         fields = "__all__"
         exclude = ('usuario',)
+
+class OrientadorForm(forms.ModelForm):
+
+    data_nasc = forms.DateField(
+        label='Data de nascimento',
+        widget=forms.DateInput(
+            format='%Y-%m-%d',
+            attrs={
+                'type': 'date',
+            }),
+        input_formats=('%Y-%m-%d',),
+    )
+
+    class Meta:
+        model = Orientador
+        fields = "__all__"

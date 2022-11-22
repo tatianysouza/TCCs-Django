@@ -18,9 +18,7 @@
             <thead>
                 <tr>
                     <th scope="col">Nome</th>
-                    <th scope="col">Data de nascimento</th>
-                    <th scope="col">Nacionalidade</th>
-                    <th scope="col">Sexo</th>
+                    <th scope="col">Último Nome</th>
                     <th scope="col">Livros</th>
                     {% if request.user.is_authenticated %}
                     <th scope="col">Ações</th>
@@ -31,9 +29,7 @@
             {% for autor in object_list %}
                 <tr>
                     <td>{{ autor.nome }}</td>
-                    <td>{{ autor.data_nasc }}</td>
-                    <td>{{ autor.nacionalidade }}</td>
-                    <td>{{ autor.get_sexo_display }}</td>
+                    <td>{{ autor.unome }}</td>
                     <td>
                         <a href="{% url 'listar_livros_autor' autor.pk %}" class="btn btn-primary btn-sm"><i class="bi bi-book"></i> Livros</a>
                     </td>

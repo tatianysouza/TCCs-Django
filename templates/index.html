@@ -29,9 +29,7 @@
                 <div class="card-body">
                     <a href="{% url 'detalhar_livro_publicado' livro.id %}" class="text-decoration-none text-reset"><h5 class="card-title">{{ livro.titulo }}</h5></a>
                     <p>Autor(es): </p>
-                    {% for autor in livro.autor.all %}
-                        <p class="card-text"> {{ autor.nome }}</p>
-                    {% endfor %}
+
                 </div>
             </div>
         </div>
