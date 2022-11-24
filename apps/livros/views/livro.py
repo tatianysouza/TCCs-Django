@@ -126,9 +126,9 @@ class LivrosEditoraList(ListView):
         nome = self.request.GET.get('nome')
 
         if nome:
-            return Livro.objects.filter(publicado=True, editora=Editora.objects.get(pk=self.kwargs['editora']), titulo__icontains=nome)
+            return Livro.objects.filter(publicado=True, curso=Editora.objects.get(pk=self.kwargs['curso']), titulo__icontains=nome)
         else:
-            return Livro.objects.filter(publicado=True, editora=Editora.objects.get(pk=self.kwargs['editora']))
+            return Livro.objects.filter(publicado=True, curso=Editora.objects.get(pk=self.kwargs['curso']))
 
 class LivrosOrientadorList(ListView):
     model = Livro
@@ -139,6 +139,6 @@ class LivrosOrientadorList(ListView):
         nome = self.request.GET.get('nome')
 
         if nome:
-            return Livro.objects.filter(publicado=True, autor=Orientador.objects.get(pk=self.kwargs['orientador']), titulo__icontains=nome)
+            return Livro.objects.filter(publicado=True, orientador=Orientador.objects.get(pk=self.kwargs['orientador']), titulo__icontains=nome)
         else:
-            return Livro.objects.filter(publicado=True, autor=Orientador.objects.get(pk=self.kwargs['orientador']))
+            return Livro.objects.filter(publicado=True, orientador=Orientador.objects.get(pk=self.kwargs['orientador']))
