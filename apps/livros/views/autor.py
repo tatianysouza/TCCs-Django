@@ -15,7 +15,7 @@ class AutorCreate(LoginRequiredMixin, SuccessMessageMixin, CreateView):
 
     def get_context_data(self, **kwargs):
         context = super(CreateView, self).get_context_data(**kwargs)
-        context['titulo'] = 'Autores - Biblioteca'
+        context['titulo'] = 'Autores'
         context['descricao'] = 'Cadastro de Autor(a)'
         return context
 
@@ -33,7 +33,7 @@ class AutorUpdate(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super(UpdateView, self).get_context_data(**kwargs)
-        context['titulo'] = 'Autores - Biblioteca'
+        context['titulo'] = 'Autores'
         context['descricao'] = 'Editar Autor(a)'
         context['botao'] = 'Salvar'
         return context
@@ -51,7 +51,7 @@ class AutorDelete(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
 
     def get_context_data(self, **kwargs):
         context = super(DeleteView, self).get_context_data(**kwargs)
-        context['titulo'] = 'Autores - Biblioteca'
+        context['titulo'] = 'Autores'
         return context
 
     def delete(self, request, *args, **kwargs):

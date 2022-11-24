@@ -1,55 +1,68 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block head %}
-    <title>Autores - Biblioteca</title>
+    <title>Autores</title>
 {% endblock %}
 {% block conteudo %}
     {% include 'partils/_alertas.html' %}
     <div>
-        <h2>Lista de Autores
-        {% if request.user.is_authenticated %}
-        <a href="{% url 'criar_autor' %}" class="btn btn-primary float-end"><i class="bi bi-plus-lg"></i> Adicionar Autor</a>
-        {% endif %}
-        </h2>
-        <hr>
+        <div>
+            <h2>Lista de Autores {% if request.user.is_authenticated %}
+            <a href="{% url 'criar_autor' %}" class="btn btn-primary float-end"><i class="bi bi-plus-lg"></i> Adicionar Autor</a>
+            {% endif %}
+            </h2>
+            <hr>
+        </div>
     </div>
-    <div class="table-responsive">
-        <table class="table table-striped" id="tabela-listar">
-            <thead>
-                <tr>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Último Nome</th>
-                    <th scope="col">Livros</th>
-                    {% if request.user.is_authenticated %}
-                    <th scope="col">Ações</th>
-                    {% endif %}
-                </tr>
-            </thead>
-            <tbody>
-            {% for autor in object_list %}
-                <tr>
-                    <td>{{ autor.nome }}</td>
-                    <td>{{ autor.unome }}</td>
-                    <td>
-                        <a href="{% url 'listar_livros_autor' autor.pk %}" class="btn btn-primary btn-sm"><i class="bi bi-book"></i> Livros</a>
-                    </td>
-                    {% if request.user.is_authenticated %}
-                    <td>
-                        <a href="{% url 'editar_autor' autor.pk %}" class="btn btn-warning btn-sm"><i class="bi bi-pencil-square"></i> Editar</a>
-                        <a href="{% url 'deletar_autor' autor.pk %}" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i> Excluir</a>
-                    </td>
-                    {% endif %}
-                </tr>
-            {% empty %}
-                <tr>
-                    <td colspan="5">Nenhum(a) autor(a) registrado(a).</td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-    </div>
-{% endblock %}
+    <form action="?" method="GET">
+        <input type="text" name="nome" id="" value="{{ request.GET.nome }}" class="p-1 border" autocomplete="off" placeholder="Nome ou parte dele">
+        <button type="submit" class="btn btn-success">Buscar</button>
+        <a href="{% url 'listar_autores' %}" class="btn btn-light">Limpar</a>
+    </form>
+    <br>
+    <div class="row">
+        {% for autor in object_list %}
+        <div class="col-sm-4">
+            <div class="card" style="width: 18rem;">
+                <a href="{% url 'detalhar_autor' autor.id %}">
+                {% if autor.foto == '' %}
+                    <img src="{% static 'img/livro.png' %}" class="card-img-top" alt="...">
+                {% else %}
+                    <img src="{{ autor.foto.url }}" class="card-img-top" alt="...">
+                {% endif %}
+                </a>
+                <div class="card-body">
+                    <a href="{% url 'detalhar_autor' autor.id %}" class="text-decoration-none text-reset"><h5 class="card-title">{{ autor.nome }}</h5></a>
 
-{% block scripts %}
-    <script src="{% static 'js/paginacao.js' %}"></script>
+                    {% for autor in livro.autor.all %}
+                        <p class="card-text"> {{ autor.nome }} {{ autor.unome }}</p>
+                    {% endfor %}
+                    <a href="{% url 'editar_autor' autor.id %}" class="btn btn-primary">Editar</a>
+                    <a href="{% url 'deletar_autor' autor.id %}" class="btn btn-danger">Deletar</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p>Nenhum autor registrado.</p>
+        {% endfor %}
+    </div>
+    <div>
+        <ul class="pagination justify-content-center">
+            <li class="page-item">
+                {% if page_obj.has_previous %}
+                    <a href="?page={{ page_obj.previous_page_number }}" class="page-link">Anterior</a>
+                {% endif %}
+            </li>
+
+            <li class="page-item">
+                <p class="page-link">Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}</p>
+            </li>
+
+            <li class="page-item">
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}" class="page-link">Próxima</a>
+                {% endif %}
+            </li>
+        </ul>
+    </div>
 {% endblock %}

@@ -9,14 +9,14 @@ class EditoraCreate(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     login_url = reverse_lazy('login')
     model = Editora
     fields = '__all__'
-    success_message = 'Editora cadastrada com sucesso!'
+    success_message = 'Curso cadastrado com sucesso!'
     template_name = "cadastros/form.html"
     success_url = reverse_lazy("listar_editoras")
 
     def get_context_data(self, **kwargs):
         context = super(CreateView, self).get_context_data(**kwargs)
-        context['titulo'] = 'Editoras - Biblioteca'
-        context['descricao'] = 'Cadastro de Editora'
+        context['titulo'] = 'Curso'
+        context['descricao'] = 'Cadastro de Curso'
         return context
 
     def form_valid(self, form):
@@ -27,14 +27,14 @@ class EditoraUpdate(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     login_url = reverse_lazy('login')
     model = Editora
     fields = '__all__'
-    success_message = 'Editora atualizada com sucesso!'
+    success_message = 'Curso atualizado com sucesso!'
     template_name = "cadastros/form.html"
     success_url = reverse_lazy("listar_autores")
 
     def get_context_data(self, **kwargs):
         context = super(UpdateView, self).get_context_data(**kwargs)
-        context['titulo'] = 'Editoras - Biblioteca'
-        context['descricao'] = 'Editar Editora'
+        context['titulo'] = 'Cursos'
+        context['descricao'] = 'Editar Curso'
         context['botao'] = 'Salvar'
         return context
 
@@ -45,14 +45,14 @@ class EditoraUpdate(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
 class EditoraDelete(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     login_url = reverse_lazy('login')
     model = Editora
-    success_message = 'Editora excluída com sucesso!'
-    error_message = 'Editora não pode ser excluída!'
+    success_message = 'Curso excluído com sucesso!'
+    error_message = 'Curso não pode ser excluído!'
     template_name = "cadastros/form-excluir.html"
     success_url = reverse_lazy("listar_editoras")
 
     def get_context_data(self, **kwargs):
         context = super(DeleteView, self).get_context_data(**kwargs)
-        context['titulo'] = 'Editoras - Biblioteca'
+        context['titulo'] = 'Curso'
         return context
 
     def delete(self, request, *args, **kwargs):

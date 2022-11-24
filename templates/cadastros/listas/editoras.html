@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block head %}
-    <title>Editoras - Biblioteca</title>
+    <title>Cursos</title>
 {% endblock %}
 {% block conteudo %}
     {% include 'partils/_alertas.html' %}
@@ -31,7 +31,7 @@
                     <td>{{ editora.nome }}</td>
                     <td>{{ editora.modalidade }}</td>
                     <td>
-                        <a href="{% url 'listar_livros_editora' editora.pk %}" class="btn btn-primary btn-sm"><i class="bi bi-book"></i> Livros</a>
+                        <a href="{% url 'listar_livros_editora' editora.pk %}" class="btn btn-primary btn-sm"><i class="bi bi-book"></i> TCC'S</a>
                     </td>
                     {% if request.user.is_authenticated %}
                     <td>
@@ -42,7 +42,7 @@
                 </tr>
             {% empty %}
                 <tr>
-                    <td colspan="4">Nenhuma editora registrada.</td>
+                    <td colspan="4">Nenhum curso registrada.</td>
                 </tr>
             {% endfor %}
             </tbody>

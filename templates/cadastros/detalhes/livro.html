@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block head %}
-    <title>Livro - {{ livro.titulo }}</title>
+    <title>TCC</title>
 {% endblock %}
 {% block conteudo %}
     <div class="page-header text-center py-3">
@@ -17,16 +17,16 @@
                 {% endif %}
         </div>
         <div class="col-sm-8">
-            <p class="h4"><strong>Palavras chave: </strong>{{ livro.genero }}</p>
-            <p class="h4"><strong>Autor(es): </strong></p>
+            <p class="h4"><strong>Palavras chave: </strong>{{ livro.pchave }}</p>
+            <p class="h4"><strong>Autor(es): </strong>{{ livro.autor }}</p>
             {% for autor in livro.autor.all %}
                 <p class="h4">{{ autor.nome }}</p>
             {% endfor %}
             <p class="h4"><strong>Ano do documento: </strong>{{ livro.ano_pub }}</p>
-            <p class="h4"><strong>Curso: </strong>{{ livro.editora.nome }}</p>
+            <p class="h4"><strong>Curso: </strong>{{ livro.curso.nome }}</p>
             <p class="h4"><strong>Resumo: </strong></p>
-            <p class="h5">{{ livro.resenha }}</p>
-            <p class="h4"><strong>Livro em PDF:</strong> <a href="{{ livro.livro_pdf.url }}">Abrir</a></p>
+            <p class="h5">{{ livro.resumo }}</p>
+            <p class="h4"><strong>TCC em PDF:</strong> <a href="{{ livro.tcc_pdf.url }}">Abrir</a></p>
         </div>
     </div>
 {% endblock %}

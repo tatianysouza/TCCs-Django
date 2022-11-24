@@ -16,7 +16,7 @@ class UsuarioCreate(SuccessMessageMixin, CreateView):
 
     def get_context_data(self, **kwargs):
         context = super(CreateView, self).get_context_data(**kwargs)
-        context['titulo'] = 'Usuários - Biblioteca'
+        context['titulo'] = 'Usuários'
         context['descricao'] = 'Cadastro de Usuário'
         return context
 
@@ -36,7 +36,7 @@ class UsuarioUpdate(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super(UpdateView, self).get_context_data(**kwargs)
-        context['titulo'] = 'Usuários - Biblioteca'
+        context['titulo'] = 'Usuários'
         context['descricao'] = 'Editar Usuário'
         context['botao'] = 'Salvar'
         return context
@@ -67,7 +67,7 @@ class UsuarioDelete(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
 
     def get_context_data(self, **kwargs):
         context = super(DeleteView, self).get_context_data(**kwargs)
-        context['titulo'] = 'Usuários - Biblioteca'
+        context['titulo'] = 'Usuários'
         return context
 
     def delete(self, request, *args, **kwargs):

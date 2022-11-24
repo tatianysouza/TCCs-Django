@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block head %}
-    <title>Biblioteca</title>
+    <title>Repositório</title>
 {% endblock %}
 {% block conteudo %}
     {% include 'partils/_alertas.html' %}
     <div class="page-header text-center py-3">
-        <h1>Livros</h1>
+        <h1>TCC'S</h1>
         <hr>
     </div>
     <form action="?" method="GET">
@@ -28,7 +28,7 @@
                 </a>
                 <div class="card-body">
                     <a href="{% url 'detalhar_livro_publicado' livro.id %}" class="text-decoration-none text-reset"><h5 class="card-title">{{ livro.titulo }}</h5></a>
-                    <p>Autor(es): </p>
+                    <p>Autor(es): {{ livro.autor.nome }}</p>
 
                 </div>
             </div>

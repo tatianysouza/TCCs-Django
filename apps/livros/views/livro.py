@@ -9,14 +9,14 @@ from django.contrib.messages.views import SuccessMessageMixin, messages
 class LivroCreate(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     login_url = reverse_lazy('login')
     form_class = LivroForm
-    success_message = 'Livro cadastrado com sucesso!'
+    success_message = 'TCC cadastrado com sucesso!'
     template_name = "cadastros/form.html"
     success_url = reverse_lazy("listar_livros_usuario")
 
     def get_context_data(self, **kwargs):
         context = super(CreateView, self).get_context_data(**kwargs)
-        context['titulo'] = 'Livros - Biblioteca'
-        context['descricao'] = 'Cadastro de Livro'
+        context['titulo'] = 'TCC`S'
+        context['descricao'] = 'Cadastro de TCC'
         return context
 
     def form_valid(self, form):
@@ -28,14 +28,14 @@ class LivroUpdate(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     login_url = reverse_lazy('login')
     model = Livro
     form_class = LivroForm
-    success_message = 'Livro atualizado com sucesso!'
+    success_message = 'TCC atualizado com sucesso!'
     template_name = "cadastros/form.html"
     success_url = reverse_lazy("listar_livros_usuario")
 
     def get_context_data(self, **kwargs):
         context = super(UpdateView, self).get_context_data(**kwargs)
-        context['titulo'] = 'Livros - Biblioteca'
-        context['descricao'] = 'Editar Livro'
+        context['titulo'] = 'TCC`S'
+        context['descricao'] = 'Editar TCC'
         context['botao'] = 'Salvar'
         return context
 
@@ -46,13 +46,13 @@ class LivroUpdate(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
 class LivroDelete(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     login_url = reverse_lazy('login')
     model = Livro
-    success_message = 'Livro excluída com sucesso!'
+    success_message = 'TCC excluído com sucesso!'
     template_name = "cadastros/form-excluir.html"
     success_url = reverse_lazy("listar_livros_usuario")
 
     def get_context_data(self, **kwargs):
         context = super(DeleteView, self).get_context_data(**kwargs)
-        context['titulo'] = 'Livros - Biblioteca'
+        context['titulo'] = 'TCC`S'
         return context
 
     def delete(self, request, *args, **kwargs):
@@ -107,6 +107,15 @@ class LivrosAutorList(ListView):
             return Livro.objects.filter(publicado=True, autor=Autor.objects.get(pk=self.kwargs['autor']), titulo__icontains=nome)
         else:
             return Livro.objects.filter(publicado=True, autor=Autor.objects.get(pk=self.kwargs['autor']))
+
+class AutorDetail(LoginRequiredMixin, DetailView):
+    login_url = reverse_lazy('login')
+    model = Autor
+    template_name = "cadastros/detalhes/autor.html"
+
+class AutorDetailPublicado(DetailView):
+    model = Autor
+    template_name = "cadastros/detalhes/autor.html"
 
 class LivrosEditoraList(ListView):
     model = Livro

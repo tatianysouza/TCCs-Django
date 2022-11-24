@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block head %}
-    <title>Orientadores - Biblioteca</title>
+    <title>Orientadores</title>
 {% endblock %}
 {% block conteudo %}
     {% include 'partils/_alertas.html' %}
@@ -19,7 +19,7 @@
                 <tr>
                     <th scope="col">Nome</th>
                     <th scope="col">Último Nome</th>
-                    <th scope="col">Livros</th>
+                    <th scope="col">TCC'S</th>
                     {% if request.user.is_authenticated %}
                     <th scope="col">Ações</th>
                     {% endif %}
@@ -31,7 +31,7 @@
                     <td>{{ orientador.pnome }}</td>
                     <td>{{ orientador.unome }}</td>
                     <td>
-                        <a href="{% url 'listar_tccs_orientador' orientador.pk %}" class="btn btn-primary btn-sm"><i class="bi bi-book"></i> Livros</a>
+                        <a href="{% url 'listar_tccs_orientador' orientador.pk %}" class="btn btn-primary btn-sm"><i class="bi bi-book"></i> TCC'S</a>
                     </td>
                     {% if request.user.is_authenticated %}
                     <td>

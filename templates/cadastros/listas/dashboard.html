@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block head %}
-    <title>Meus Livros - Biblioteca</title>
+    <title>Meus TCC'S</title>
 {% endblock %}
 {% block conteudo %}
     {% include 'partils/_alertas.html' %}
     <div>
         <div>
-            <h2>Livros de {{ user.first_name }}
-            <a href="{% url 'criar_livro' %}" class="btn btn-primary float-end"><i class="bi bi-plus-lg"></i> Adicionar Livro</a>
+            <h2>TCC'S de {{ user.first_name }}
+            <a href="{% url 'criar_livro' %}" class="btn btn-primary float-end"><i class="bi bi-plus-lg"></i> Adicionar TCC</a>
             </h2>
             <hr>
         </div>
@@ -32,7 +32,7 @@
                 </a>
                 <div class="card-body">
                     <a href="{% url 'detalhar_livro' livro.id %}" class="text-decoration-none text-reset"><h5 class="card-title">{{ livro.titulo }}</h5></a>
-                    <p>Autor(es): </p>
+                    <p>Autor(es): {{ livro.autor.nome}}</p>
                     {% for autor in livro.autor.all %}
                         <p class="card-text"> {{ autor.nome }}</p>
                     {% endfor %}

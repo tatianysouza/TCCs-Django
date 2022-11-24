@@ -17,6 +17,8 @@ urlpatterns = [
     path('editar/autor/<int:pk>/', AutorUpdate.as_view(), name='editar_autor'),
     path('deletar/autor/<int:pk>/', AutorDelete.as_view(), name='deletar_autor'),
     path('listar/autores/', AutorList.as_view(), name='listar_autores'),
+    path('detalhar/autor/<int:pk>/', AutorDetail.as_view(), name='detalhar_autor'),
+    path('autor/<int:pk>/', AutorDetailPublicado.as_view(), name='detalhar_autor_publicado'),
 
     path('criar/editora/', EditoraCreate.as_view(), name='criar_editora'),
     path('editar/editora/<int:pk>/', EditoraUpdate.as_view(), name='editar_editora'),
