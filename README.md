@@ -3,7 +3,7 @@
 <ul>
     <li>Clone o repositório;</li>
     <code>
-        git clone https://github.com/EdilvaCarvalho/biblioteca-django.git
+        git clone https://github.com/tatianysouza/TCCs-Django.git
     </code>
     <li>No terminal: Instale as dependências do ambiente de desenvolvimento;</li>
     <code>
