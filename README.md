@@ -1,4 +1,4 @@
-<h1 align="center">Projeto Biblioteca como o <em>framework</em> Django</h1>
+<h1 align="center">Projeto de repositório de TCCs como o <em>framework</em> Django</h1>
 
 <ul>
     <li>Clone o repositório;</li>
