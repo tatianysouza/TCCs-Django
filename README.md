@@ -11,12 +11,8 @@
     <li>No SGBD PostgreSQL: Crie o banco de dados com o nome de "biblioteca". Lembrar de alterar o USER e o PASSWORD do seu banco no arquivo settings.py;</li>
     <li>Após a criação do banco, lembrar de realizar as migrações para a criação das tabelas no banco de dados;</li>
     <li>No terminal: Crie as migrações:</li>
-    <code>
-        python manage.py makemigrations
-    </code>
+    <code>python manage.py makemigrations</code>
     <br>
-    <code>
-        python manage.py migrate
-    </code>
+    <code>python manage.py migrate</code>
 >>>>>>> 94e874c552600479636704a16da3d10a5feae985
 </ul>
