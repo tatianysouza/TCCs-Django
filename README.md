@@ -2,13 +2,9 @@
 
 <ul>
     <li>Clone o repositório;</li>
-    <code>
-        git clone https://github.com/tatianysouza/TCCs-Django.git
-    </code>
+    <code>git clone https://github.com/tatianysouza/TCCs-Django.git</code>
     <li>No terminal: Instale as dependências do ambiente de desenvolvimento;</li>
-    <code>
-        pip install -r requirements.txt
-    </code>    
+    <code>pip install -r requirements.txt</code>    
 <<<<<<< HEAD
     <li>No SGBD PostgreSQL: Crie o banco de dados com o nome de "biblioteca-django". Lembrar de alterar o USER e o PASSWORD do seu banco no arquivo settings.py;</li>
 =======
